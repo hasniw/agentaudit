@@ -1,16 +1,6 @@
-import dynamic from "next/dynamic";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
-const ShieldScene = dynamic(() => import("@/components/ShieldScene"), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-[500px] md:h-[600px] flex items-center justify-center">
-      <div className="w-16 h-16 border-2 border-brand-500/30 border-t-brand-500 rounded-full animate-spin" />
-    </div>
-  ),
-});
 
 const steps = [
   {
@@ -219,8 +209,19 @@ export default function Home() {
                   </span>
                 </div>
               </div>
-              <div className="relative">
-                <ShieldScene />
+              <div className="relative flex items-center justify-center h-[400px] md:h-[500px]">
+                <div className="relative">
+                  <div className="w-48 h-48 md:w-64 md:h-64 rounded-full border-2 border-red-500/30 animate-pulse flex items-center justify-center">
+                    <div className="w-36 h-36 md:w-48 md:h-48 rounded-full border border-red-500/50 flex items-center justify-center animate-spin" style={{animationDuration: '8s'}}>
+                      <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-gradient-to-br from-red-600/20 to-red-900/40 flex items-center justify-center backdrop-blur-sm">
+                        <svg className="w-12 h-12 md:w-16 md:h-16 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="absolute top-0 left-0 w-full h-full rounded-full border border-red-500/10 animate-ping" style={{animationDuration: '3s'}}></div>
+                </div>
               </div>
             </div>
           </div>
